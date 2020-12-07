@@ -4,6 +4,8 @@ You can use the [editor on GitHub](https://github.com/BoundlessEvents/boundlesse
 
 Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 
+<object style="border: 0" scrolling="no" frameborder="0" data="https://calendar.google.com/calendar/embed?src=79tncl8tf5ofpqtt7588ai9734%40group.calendar.google.com&amp;ctz=America%2FNew_York" width="800" height="600"></object>
+
 ### Markdown
 
 Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
