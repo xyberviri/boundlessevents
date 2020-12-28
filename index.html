@@ -13,12 +13,41 @@
     width: 800px;
 }
 </style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 </head>
 <body>
-  <div class="middle">  
-  <object data="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%23ffffff&amp;ctz=America%2FNew_York&amp;src=a3RmNmVlamhtb3ZxaGI2YmdyZ2piYjlvaThAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;src=MDVnbzc3OHM0anNpZGdkNGVkMmd1cXFvY29AZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;src=aHYzaXU2azBvNnN1MWtmNDJsOWxxbWUxZ2tAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;src=dXZ0NTBrMXNtMWk3dW5nanJnOTAzY2FpY2tAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;color=%239E69AF&amp;showPrint=0" style="border-width:0" width="800" height="600" frameborder="0" scrolling="no"></object>	  
+  <div class="middle">
+  	<object id="change" data="" style="border-width:0" width="800" height="600" frameborder="0" scrolling="no"></object> 
   </div>
-<div class="middle">This website is not affiliated with Boundless, it's staff or Wonderstruck Games</br></br>
-If you have a calendar you would like included please PM Xyberviri on the forums/discord or Emareks in game.
-</div>	
+<div class="middle">
+	<a href="#" data-key='{"timezone":"America%2FNew_York"}'>EST</a> · <a  href="#" data-key='{"timezone":"UTC"}'>UTC</a> · <a  href="#" data-key='{"timezone":"America%2FLos_Angeles"}'>PST</a></br>
+	This website is not affiliated with Boundless, it's staff or Wonderstruck Games</br></br>
+	If you have a calendar you would like included please PM Xyberviri on the forums/discord or Emareks in game.
+</div>
+
+<script>
+var calendars = ["a3RmNmVlamhtb3ZxaGI2YmdyZ2piYjlvaThAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ", "MDVnbzc3OHM0anNpZGdkNGVkMmd1cXFvY29AZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ", "aHYzaXU2azBvNnN1MWtmNDJsOWxxbWUxZ2tAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ","dXZ0NTBrMXNtMWk3dW5nanJnOTAzY2FpY2tAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ"];
+var googleDataUrl='https://calendar.google.com/calendar/embed?height=600&wkst=1&bgcolor=%23ffffff&color=%239E69AF&showPrint=0&ctz=';
+function setCalendarUrl(t) {
+  if (t === undefined) {
+    t = 'America%2FNew_York';
+  }
+  var x,calendarString = '';
+	
+  for (x in calendars){
+    calendarString += '&src=' + calendars[x] ;
+  }
+  var newurl= googleDataUrl + t +  calendarString
+  $("#change").prop("data",newurl); 
+}
+
+$(document).ready(function() {
+    $("a").click(function(){
+    var me = $(this),
+    data = me.data('key');
+    setCalendarUrl(data.timezone);
+    });    
+setCalendarUrl();
+});
+</script>
 </body>
