@@ -7,6 +7,9 @@
     background-color: White;
     color: Black; 
 }
+  #clock{
+  padding-top: 5px;
+}
 .middle {
     margin: auto;
     vertical-align: top;
@@ -17,18 +20,24 @@
 </head>
 <body>
   <div class="middle">
-  	<object id="change" data="" style="border-width:0" width="800" height="600" frameborder="0" scrolling="no"></object> 
+  <object id="change" data="" style="border-width:0" width="800" height="600" frameborder="0" scrolling="no"></object> 
   </div>
 <div class="middle">
-	<a  href="#" data-key='{"timezone":"America%2FLos_Angeles"}'>PST</a> · <a href="#" data-key='{"timezone":"America%2FNew_York"}'>EST</a> · <a  href="#" data-key='{"timezone":"UTC"}'>UTC</a> · <a href="#" data-key='{"timezone":"Etc%2FGMT"}'>GMT</a> · <a href="#" data-key='{"timezone":"Pacific%2FAuckland"}'>NZ</a>
-	</br><div id="clock"></div></br>
-        This website is NOT affiliated with Boundless, it's staff or Wonderstruck Games</br></br>
-	If you have a calendar you would like included please PM Xyberviri on the forums/discord,</br>
-        Emareks in game or open a <a href="https://github.com/BoundlessEvents/boundlessevents.github.io/issues">issue on github</a>.
+        <a  href="#" data-key='{"timezone":"America%2FLos_Angeles", "code":"PST"}'>PST</a> - <a href="#" data-key='{"timezone":"America%2FNew_York", "code":"EST"}'>EST</a> - <a  href="#" data-key='{"timezone":"UTC", "code":"UTC"}'>UTC</a> - <a href="#" data-key='{"timezone":"Etc%2FGMT", "code":"GMT"}'>GMT</a> - <a href="#" data-key='{"timezone":"Pacific%2FAuckland", "code":"NZ"}'>NZ</a>
+        </br><div id="clock"></div></br>
+        This website is NOT affiliated with Boundless, it's staff or Wonderstruck Games. <a href="about.html"> info </a>
 </div>
 
+<script src="calendars.js"></script>
+<script src="javascript.js"></script>
+
 <script>
-var calendars = ["a3RmNmVlamhtb3ZxaGI2YmdyZ2piYjlvaThAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ", "MDVnbzc3OHM0anNpZGdkNGVkMmd1cXFvY29AZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ", "aHYzaXU2azBvNnN1MWtmNDJsOWxxbWUxZ2tAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ","dXZ0NTBrMXNtMWk3dW5nanJnOTAzY2FpY2tAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ"];
+/*
+var calendars = ["a3RmNmVlamhtb3ZxaGI2YmdyZ2piYjlvaThAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ",
+                 "MDVnbzc3OHM0anNpZGdkNGVkMmd1cXFvY29AZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ",
+                 "aHYzaXU2azBvNnN1MWtmNDJsOWxxbWUxZ2tAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ",
+                 "dXZ0NTBrMXNtMWk3dW5nanJnOTAzY2FpY2tAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ"
+                 ];
 var googleDataUrl='https://calendar.google.com/calendar/embed?height=600&wkst=1&bgcolor=%23ffffff&color=%239E69AF&showPrint=0&ctz=';
 function setCalendarUrl(t) {
   if (t === undefined) {
@@ -41,8 +50,8 @@ function setCalendarUrl(t) {
   }
   var newurl= googleDataUrl + t +  calendarString
   $("#change").prop("data",newurl); 
-}
-
+}*/
+/*
 function startTime() {
   offset = 8;
   var today = new Date();
@@ -71,10 +80,14 @@ function checkTime(i) {
   };
   return i;
 }	
-
-function setTime(){
+*/
+/*
+function setTime(t){
+  if (t === undefined) {
+    t = 'UTC';
+  }
 	var time = new Date();
-	document.getElementById('clock').innerHTML = "Current time: " + time.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true, timeZone: 'UTC' }) +"UTC/GMT";
+	document.getElementById('clock').innerHTML = "Current <b>"+t+"</b> time: " + time.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true, timeZone: t });
 }
 	
 $(document).ready(function() {
@@ -82,11 +95,11 @@ $(document).ready(function() {
     var me = $(this),
     data = me.data('key');
     setCalendarUrl(data.timezone);
-    setTime();
+    setTime(data.code);
     });    
 setCalendarUrl();
 setTime();
 });
-	
+	*/
 </script>
 </body>
