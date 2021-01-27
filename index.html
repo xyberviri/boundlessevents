@@ -71,16 +71,21 @@ function checkTime(i) {
   };
   return i;
 }	
-	
+
+function setTime(){
+	var time = new Date();
+	document.getElementById('clock').innerHTML = "Current time: " + time.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true, timeZone: 'UTC' }) +"UTC/GMT";
+}
 	
 $(document).ready(function() {
     $("a").click(function(){
     var me = $(this),
     data = me.data('key');
     setCalendarUrl(data.timezone);
+    setTime();
     });    
 setCalendarUrl();
-startTime();
+setTime();
 });
 	
 </script>
