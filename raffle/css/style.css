@@ -57,3 +57,7 @@ body {
 	text-align: justify;
 	padding: 7px;
 }
+
+.button {
+  cursor:pointer;
+}
