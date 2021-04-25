@@ -36,7 +36,11 @@ body {
 }
 
 a {
-  color: whitesmoke;
+  color: #EC375E;
+}
+
+a:hover {
+  color: red;
 }
 
 .header > span > b {
